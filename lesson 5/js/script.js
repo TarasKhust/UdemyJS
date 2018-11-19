@@ -6,23 +6,26 @@ let li = document.createElement('li');
 let text = document.createTextNode('Пятый пункт');
 let adv = document.querySelectorAll('.column');
 let adv1 = document.querySelector('.adv');
-let body = document.querySelector('body');
 let prom = document.getElementById('prompt');
 
 let timerId = setTimeout( () => {
-    let question = prompt('Как вам техника Apple', '');
+    let question = prompt('Как вам техника Apple?', '');
     prom.textContent = question;
 }, 2000);
 
 
-li.classList.add('menu-item');
-menu.appendChild(li).appendChild(text);
-menu.insertBefore(item[2], item[1]);
+let addClass = () => {
+    li.classList.add('menu-item');
+    menu.appendChild(li).appendChild(text);
+    menu.insertBefore(item[2], item[1]);
+    h1.textContent = 'Мы продаем только подлинную технику Apple';
+    adv[1].removeChild(adv1);
+};
 
-h1.textContent = 'Мы продаем только подлинную технику Apple';
+addClass();
 
-adv[1].removeChild(adv1);
 
-body.style = 'background: url(./img/apple_true.jpg) center no-repeat';
+
+document.body.style = 'background: url(./img/apple_true.jpg) center no-repeat';
 
 
