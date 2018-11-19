@@ -9,16 +9,16 @@ let adv1 = document.querySelector('.adv');
 let prom = document.getElementById('prompt');
 
 let timerId = setTimeout( () => {
-    let question = prompt('Как вам техника Apple?', '');
-    prom.textContent = question;
+    prom.textContent = window.prompt('Как вам техника Apple?', '');
 }, 2000);
 
 
 let addClass = () => {
     li.classList.add('menu-item');
+    h1.textContent = 'Мы продаем только подлинную технику Apple';
+    document.body.style.backgroundImage = 'url(./img/apple_true.jpg)';
     menu.appendChild(li).appendChild(text);
     menu.insertBefore(item[2], item[1]);
-    h1.textContent = 'Мы продаем только подлинную технику Apple';
     adv[1].removeChild(adv1);
 };
 
@@ -26,6 +26,5 @@ addClass();
 
 
 
-document.body.style = 'background: url(./img/apple_true.jpg) center no-repeat';
 
 
