@@ -16,7 +16,7 @@ let timerId = setTimeout( () => {
 let addClass = () => {
     li.classList.add('menu-item');
     h1.textContent = 'Мы продаем только подлинную технику Apple';
-    document.body.style.backgroundImage = 'url(./img/apple_true.jpg)';
+    document.body.style.backgroundImage = 'url(/img/apple_true.jpg)';
     menu.appendChild(li).appendChild(text);
     menu.insertBefore(item[2], item[1]);
     adv[1].removeChild(adv1);
