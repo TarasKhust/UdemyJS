@@ -1,3 +1,4 @@
+'use strict';
 let menu = document.querySelector('.menu');
 let h1 = document.getElementById("title");
 let item = document.querySelectorAll('li');
@@ -8,12 +9,10 @@ let adv1 = document.querySelector('.adv');
 let body = document.querySelector('body');
 let prom = document.getElementById('prompt');
 
-let timer = () => {
+let timerId = setTimeout( () => {
     let question = prompt('Как вам техника Apple', '');
-    prom.innerHTML = question;
-};
-
-let timerId = setTimeout(timer, 3000);
+    prom.textContent = question;
+}, 2000);
 
 
 li.classList.add('menu-item');
