@@ -107,7 +107,7 @@ let conf = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Index',
-            template: './lesson5/index.html',
+            template: './src/index.html',
             hash: true,
             // excludeChunks: ['contact'],
             // minify: {
