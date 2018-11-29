@@ -27,14 +27,49 @@ let startBtn = document.getElementById("start"),
 let money, time;
 
 startBtn.addEventListener('click', () => {
-    money = +window.prompt ("Ваш бюджет на месяц?", "");
     time = window.prompt ("Введите дату в формате YYYY-MM-DD", "");
+    money = +window.prompt ("Ваш бюджет на месяц?", "");
 
-    while (isNaN(money) || money === "" || money === null) {
+    while (isNaN(money) || money === " " || money === null) {
         money = +window.prompt ("Ваш бюджет на месяц?", "");
     }
 
-});
+    appData.budget = money;
+    appData.timeData = time;
+    budgetValue.textContent = money.toFixed();
+    yearValue.value = new Date(Date.parse(time)).getFullYear();
+    monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
+    dayValue.value = new Date(Date.parse(time)).getDay();
+}); // calculate income
+
+expensesBtn.addEventListener('click', () => {
+    let sum = 0;
+    for (let i = 0; i < expensesItem.length; i++) {
+        let a = expensesItem[i].value,
+            b = expensesItem[++i].value;
+
+        if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+
+            console.log ("done");
+
+            appData.expenses[a] = b;
+            sum += +b;
+        } else {
+            console.log ("bad result");
+            i--;
+        }
+
+    }
+    expensesValue.textContent = sum;
+}); // calculate expenses
+
+optionalExpensesBtn.addEventListener('click', () => {
+    for (let i = 0; i < optionalExpensesItem.length; i++) {
+        let questionOptExpenses = optionalExpensesItem[i].value;
+        appData.optionalExpenses[i] = questionOptExpenses;
+        optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
+    }
+}); // calculate optional expenses
 
 let appData = {
     budget: money,
@@ -43,23 +78,6 @@ let appData = {
     optionalExpenses: {},
     income: [],
     savings: true,
-    chooseExpenses: function () {
-        for (let i = 0; i < 2; i++) {
-            let a = window.prompt ("Введите обязательную статью расходов в этом месяце", ""),
-                b = window.prompt ("Во сколько обойдется?", "");
-
-            if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
-
-                console.log ("done");
-
-                appData.expenses[a] = b;
-            } else {
-                console.log ("bad result");
-                i--;
-            }
-
-        }
-    },
     detectDayBudget: function () {
         appData.moneyPerDay = (appData.budget / 30).toFixed();
         alert ("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");
@@ -82,13 +100,6 @@ let appData = {
 
             appData.monthIncome = save/100/12*percent;
             alert("Доход с Вашего депозита в месяц: " + appData.monthIncome);
-        }
-    },
-    chooseOptExpenses: function () {
-        for (let i = 1; i <= 3; i++) {
-            let questionOptExpenses = prompt("Статья необязательных расходов?");
-            appData.optionalExpenses[i] = questionOptExpenses;
-            console.log(appData.optionalExpenses);
         }
     },
     chooseIncome: function () {
