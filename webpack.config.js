@@ -125,16 +125,16 @@ let conf = {
             //     collapseWhitespace: true },
         }),*/
 
-        new CopyWebpackPlugin(
-             [
-                 { from: 'lesson5/img', to: 'img' }
-             ],
-             {
-                 ignore: [
-                     {glob: 'svg/*'},
-                 ]
-             }
-         ),
+        // new CopyWebpackPlugin(
+        //      [
+        //          { from: 'lesson5/img', to: 'img' }
+        //      ],
+        //      {
+        //          ignore: [
+        //              {glob: 'svg/*'},
+        //          ]
+        //      }
+        //  ),
 
         new ExtractTextPlugin({
             filename: 'css/style.css',
