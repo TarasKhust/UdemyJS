@@ -1,7 +1,6 @@
 let path = require('path');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-let CopyWebpackPlugin = require('copy-webpack-plugin');
 let webpack = require('webpack');
 
 let SRC_DIR = path.resolve(__dirname,'src');
