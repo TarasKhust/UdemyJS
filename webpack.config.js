@@ -25,8 +25,8 @@ let conf = {
     devServer: {
         overlay: {
             warning: true,
-            errors: true
-        }
+            errors: true,
+        },
         // contentBase: 'dist'
     },
     module: {
