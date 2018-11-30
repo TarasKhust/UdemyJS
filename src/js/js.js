@@ -68,13 +68,9 @@ expensesBtn.addEventListener('click', () => {
             b = expensesItem[++i].value;
 
         if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
-
-            console.log ("done");
-
             appData.expenses[a] = b;
             sum += +b;
         } else {
-            console.log ("bad result");
             i--;
         }
 
@@ -132,8 +128,8 @@ sumValue.addEventListener('input', () => {
         appData.monthIncome = sum/100/12*percent;
         appData.yearIncome = sum/100*percent;
 
-        monthSavingsValue.textContent = appData.monthIncome.toFixed(1),
-            yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
+        monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
+        yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
    }
 }); // amount value
 
